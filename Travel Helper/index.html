@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👋hello!!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+
+            <div id="auth-section">
+
+                <div id="user-info" style="display: none;">
+                    <span>Welcome, <span id="logged-user"></span>!</span>
+                    <button onclick="logout()" class="logout-btn">Logout</button>
+                </div>
+
+                <div id="auth-forms">
+
+                    <div id="login-form" style="display: none;">
+                        <input type="text" id="username" placeholder="Username" required>
+                        <input type="password" id="password" placeholder="Password" required>
+                        <button onclick="login()" class="auth-btn">Login</button>
+                        <button onclick="showRegister()" class="auth-btn secondary">Register</button>
+                        <button onclick="closeAuthForms()" class="auth-btn close-btn">✕</button>
+                    </div>
+
+                    <div id="register-form" style="display: none;">
+                        <input type="text" id="reg-username" placeholder="Username" required>
+                        <input type="email" id="reg-email" placeholder="Email" required>
+                        <input type="password" id="reg-password" placeholder="Password" required>
+                        <button onclick="register()" class="auth-btn">Register</button>
+                        <button onclick="showLogin()" class="auth-btn secondary">Back to Login</button>
+                        <button onclick="closeAuthForms()" class="auth-btn close-btn">✕</button>
+                    </div>
+
+                </div>
+                <button id="toggle-auth" onclick="toggleAuth()" class="main-auth-btn">Login / Register</button>
+            </div>
+            
+            <h1>Simple Travel Helper</h1>
+        
+            <button id="bg-cycle-btn" class="bg-cycle-btn">Change Background</button>
+        </div>
+        <!-- ADDED ID TO THIS ELEMENT -->
+        <p class="subtitle" id="changing-subtitle">Your journey matters. Every trip is an adventure worth remembering.</p>
+
+    </header>
+
+    <main>
+
+        <section id="converter">
+            <h2>Currency Converter</h2>
+            <input type="number" id="amount" placeholder="Amount" value="1">
+            <select id="from">
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="CNY">CNY - Chinese Yuan</option>
+                <option value="HKD">HKD - Hong Kong Dollar</option>
+                <option value="MOP">MOP - Macanese Pataca</option>
+                <option value="KRW">KRW - South Korean Won</option>
+                <option value="SGD">SGD - Singapore Dollar</option>
+            </select>
+            to
+            <select id="to">
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="CNY">CNY - Chinese Yuan</option>
+                <option value="HKD">HKD - Hong Kong Dollar</option>
+                <option value="MOP">MOP - Macanese Pataca</option>
+                <option value="KRW">KRW - South Korean Won</option>
+                <option value="SGD">SGD - Singapore Dollar</option>
+            </select>
+            <button onclick="convertCurrency()">Convert</button>
+            <p id="result">The currency conversion's result will appear here.</p>
+            
+
+            <div class="chart-container">
+                <h3>Exchange Rate Trends (Last 7 Days)</h3>
+                <canvas id="exchangeChart"></canvas>
+                <div class="chart-controls">
+                    <select id="chart-base" onchange="updateChart()">
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="JPY">JPY - Japanese Yen</option>
+                        <option value="CNY">CNY - Chinese Yuan</option>
+                        <option value="HKD">HKD - Hong Kong Dollar</option>
+                        <option value="MOP">MOP - Macanese Pataca</option>
+                        <option value="KRW">KRW - South Korean Won</option>
+                        <option value="SGD">SGD - Singapore Dollar</option>
+                    </select>
+                    <select id="chart-target" onchange="updateChart()">
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="JPY">JPY - Japanese Yen</option>
+                        <option value="CNY">CNY - Chinese Yuan</option>
+                        <option value="HKD">HKD - Hong Kong Dollar</option>
+                        <option value="MOP">MOP - Macanese Pataca</option>
+                        <option value="KRW">KRW - South Korean Won</option>
+                        <option value="SGD">SGD - Singapore Dollar</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section id="itinerary">
+            <h2>Your Travel Itinerary</h2>
+            
+            <div class="cover-image-section">
+                <div id="cover-preview" class="cover-preview">
+                    <div class="cover-placeholder">Upload a cover image for your trip</div>
+                </div>
+                <input type="file" id="cover-upload" accept="image/*" onchange="previewCoverImage(event)">
+            </div>
+            
+            <input type="text" id="title" placeholder="Trip Title">
+            <textarea id="desc" placeholder="Description"></textarea>
+            <button onclick="addItinerary()" id="itinerary-btn">Add Itinerary</button>
+            <div id="list"></div>
+        </section>
+    </main>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>

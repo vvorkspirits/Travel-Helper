@@ -1,0 +1,467 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    min-height: 100vh;
+    transition: background 0.5s ease;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    position: relative;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    position: relative;
+    min-height: 50px;
+}
+
+.header-top h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+.bg-cycle-btn {
+    background: linear-gradient(to right, #9b59b6, #8e44ad);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bg-cycle-btn:hover {
+    background: linear-gradient(to right, #8e44ad, #7d3c98);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+#auth-section {
+    position: relative;
+    text-align: left;
+    z-index: 100;
+}
+
+.main-auth-btn {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.main-auth-btn:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+#auth-forms {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 280px;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+#login-form, #register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.auth-btn:not(.secondary):not(.close-btn) {
+    background: #3498db;
+    color: white;
+}
+
+.auth-btn:not(.secondary):not(.close-btn):hover {
+    background: #2980b9;
+}
+
+.auth-btn.secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.auth-btn.secondary:hover {
+    background: #7f8c8d;
+}
+
+.auth-btn.close-btn {
+    background: #e74c3c;
+    color: white;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    align-self: flex-end;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#auth-forms input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logout-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+/* UPDATED: Added transition effect to subtitle */
+.subtitle {
+    color: #7f8c8d;
+    font-style: italic;
+    margin: 10px 0 20px;
+    font-size: 1.1rem;
+    clear: both;
+    transition: opacity 0.5s ease-in-out; /* Added transition */
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    clear: both;
+}
+
+section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    flex: 1;
+    min-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #2980b9;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.chart-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.chart-container h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.chart-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.cover-image-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cover-preview {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 2px dashed #3498db;
+}
+
+.cover-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+#cover-upload {
+    display: none;
+}
+
+.itinerary-item {
+    background: linear-gradient(to right, #ecf0f1, #ffffff);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.itinerary-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.itinerary-item h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.itinerary-item img.cover-thumb {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.itinerary-item button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.itinerary-item button:hover {
+    background: #2980b9;
+}
+
+.itinerary-item button:last-child {
+    background: #e74c3c;
+}
+
+.itinerary-item button:last-child:hover {
+    background: #c0392b;
+}
+
+#itinerary input,
+#itinerary textarea {
+    width: 100%;
+    margin: 10px 0;
+    display: block;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#itinerary textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+#itinerary button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#itinerary button:hover {
+    background: #27ae60;
+}
+
+#converter {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+#converter h2 {
+    color: #2980b9;
+    margin-bottom: 25px;
+    text-align: left;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+#converter input, 
+#converter select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    font-size: 1rem;
+}
+
+#converter select {
+    cursor: pointer;
+}
+
+#converter button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#converter button:hover {
+    background: linear-gradient(to right, #2980b9, #1c5980);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
+}
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ecf0f1 0%, #dfe6e9 100%);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    border: 1px solid #bdc3c7;
+    font-weight: bold;
+}
+
+.loading, .info {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .bg-cycle-btn {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+        width: 100%;
+        order: 3;
+    }
+    
+    .header-top h1 {
+        position: static;
+        transform: none;
+        text-align: center;
+        order: 2;
+        margin: 10px 0;
+    }
+    
+    #auth-section {
+        order: 1;
+        width: 100%;
+    }
+    
+    #auth-forms {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    main {
+        flex-direction: column;
+    }
+    
+    section {
+        width: 100%;
+    }
+    
+    .chart-controls {
+        flex-direction: column;
+    }
+}
